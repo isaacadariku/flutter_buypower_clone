@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.buy_power_clone">
+    package="com.buypower.clone">
    <application
-        android:label="buy_power_clone"
+        android:label="Buypower Clone"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

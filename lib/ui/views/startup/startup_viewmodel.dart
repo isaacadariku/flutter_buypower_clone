@@ -1,6 +1,6 @@
+import 'package:buypower_clone/app/app.locator.dart';
+import 'package:buypower_clone/app/app.router.dart';
 import 'package:stacked/stacked.dart';
-import 'package:buy_power_clone/app/app.locator.dart';
-import 'package:buy_power_clone/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 class StartupViewModel extends BaseViewModel {

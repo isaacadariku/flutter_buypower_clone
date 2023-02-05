@@ -1,7 +1,7 @@
+import 'package:buypower_clone/app/app.locator.dart';
+import 'package:buypower_clone/enums/bottom_sheet_type.dart';
+import 'package:buypower_clone/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:buy_power_clone/app/app.locator.dart';
-import 'package:buy_power_clone/enums/bottom_sheet_type.dart';
-import 'package:buy_power_clone/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:stacked_services/stacked_services.dart';
 // @stacked-import
 
