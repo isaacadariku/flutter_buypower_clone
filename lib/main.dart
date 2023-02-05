@@ -1,8 +1,8 @@
+import 'package:buypower_clone/app/app.locator.dart';
+import 'package:buypower_clone/ui/common/app_colors.dart';
+import 'package:buypower_clone/ui/setup/setup_bottom_sheet_ui.dart';
+import 'package:buypower_clone/ui/setup/setup_dialog_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:buy_power_clone/app/app.locator.dart';
-import 'package:buy_power_clone/ui/common/app_colors.dart';
-import 'package:buy_power_clone/ui/setup/setup_bottom_sheet_ui.dart';
-import 'package:buy_power_clone/ui/setup/setup_dialog_ui.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import 'app/app.router.dart';
