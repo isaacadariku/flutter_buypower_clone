@@ -1,4 +1,4 @@
-package com.example.buy_power_clone
+package com.buypower.clone
 
 import io.flutter.embedding.android.FlutterActivity
 
