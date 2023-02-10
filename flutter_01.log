@@ -1,0 +1,76 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run
+
+## exception
+
+FileSystemException: FileSystemException: Deletion failed, path = 'C:\Users\Admin\AppData\Local\Temp\flutter_tools.3cfb140f\flutter_tool.a287e9cf' (OS Error: The process cannot access the file because it is being used by another process.
+, errno = 32)
+
+```
+#0      _Directory._deleteSync (dart:io/directory_impl.dart:201:7)
+#1      FileSystemEntity.deleteSync (dart:io/file_system_entity.dart:427:7)
+#2      ForwardingFileSystemEntity.deleteSync (package:file/src/forwarding/forwarding_file_system_entity.dart:70:16)
+#3      ResidentRunner.preExit (package:flutter_tools/src/resident_runner.dart:1404:25)
+#4      HotRunner.preExit (package:flutter_tools/src/run_hot.dart:1083:17)
+<asynchronous suspension>
+#5      ResidentRunner.exit (package:flutter_tools/src/resident_runner.dart:1254:5)
+<asynchronous suspension>
+#6      TerminalHandler._commonTerminalInputHandler (package:flutter_tools/src/resident_runner.dart:1680:9)
+<asynchronous suspension>
+#7      TerminalHandler.processTerminalInput (package:flutter_tools/src/resident_runner.dart:1739:7)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 3.3.9, on Microsoft Windows [Version 10.0.19043.1766], locale en-US)
+    • Flutter version 3.3.9 on channel stable at C:\src\flutter\flutter
+    • Upstream repository https://github.com/flutter/flutter.git
+    • Framework revision b8f7f1f986 (3 months ago), 2022-11-23 06:43:51 +0900
+    • Engine revision 8f2221fbef
+    • Dart version 2.18.5
+    • DevTools version 2.15.0
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 32.1.0-rc1)
+    • Android SDK at C:\Users\Admin\AppData\Local\Android\sdk
+    • Platform android-33, build-tools 32.1.0-rc1
+    • Java binary at: C:\Program Files\Android\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 11.0.13+0-b1751.21-8125866)
+    • All Android licenses accepted.
+
+[✓] Chrome - develop for the web
+    • Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[✓] Visual Studio - develop for Windows (Visual Studio Community 2022 17.2.1)
+    • Visual Studio at C:\Program Files\Microsoft Visual Studio\2022\Community
+    • Visual Studio Community 2022 version 17.2.32516.85
+    • Windows 10 SDK version 10.0.19041.0
+
+[✓] Android Studio (version 2021.3)
+    • Android Studio at C:\Program Files\Android\Android Studio
+    • Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    • Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    • Java version OpenJDK Runtime Environment (build 11.0.13+0-b1751.21-8125866)
+
+[✓] VS Code (version 1.75.0)
+    • VS Code at C:\Users\Admin\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.58.0
+
+[✓] Connected device (4 available)
+    • Infinix X683 (mobile) • 06134250CQ006881 • android-arm64  • Android 10 (API 29)
+    • Windows (desktop)     • windows          • windows-x64    • Microsoft Windows [Version 10.0.19043.1766]
+    • Chrome (web)          • chrome           • web-javascript • Google Chrome 109.0.5414.120
+    • Edge (web)            • edge             • web-javascript • Microsoft Edge 109.0.1518.70
+
+[✓] HTTP Host Availability
+    • All required HTTP hosts are available
+
+• No issues found!
+```

@@ -1,12 +1,12 @@
-import 'package:buypower_clone/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
-
 import 'startup_viewmodel.dart';
 
 class StartupView extends StackedView<StartupViewModel> {
   const StartupView({Key? key}) : super(key: key);
+
+  
 
   @override
   Widget builder(
@@ -14,40 +14,24 @@ class StartupView extends StackedView<StartupViewModel> {
     StartupViewModel viewModel,
     Widget? child,
   ) {
+    var _deviceHeight = MediaQuery.of(context).size.height;
+    var _deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Text(
-              'STACKED',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w900,
-              ),
+      body: Stack(
+        alignment: Alignment.topCenter,
+        children: [
+          Container(
+            width: _deviceWidth,
+            height: _deviceHeight,
+            decoration: const BoxDecoration(
+                image: DecorationImage(image: AssetImage("assets/images/africa.png"), fit: BoxFit.fitHeight),
+                color: Colors.white),
+            child: Center(
+              child: Image.asset("assets/images/full_logo.png"),
             ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: const [
-                Text(
-                  'Loading ...',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
-                horizontalSpaceSmall,
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
+          ),
+          Positioned(top: _deviceHeight / 1.7, child: const CircularProgressIndicator.adaptive()),
+        ],
       ),
     );
   }
@@ -59,6 +43,6 @@ class StartupView extends StackedView<StartupViewModel> {
       StartupViewModel();
 
   @override
-  void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance
-      .addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
+  void onViewModelReady(StartupViewModel viewModel) =>
+      SchedulerBinding.instance.addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
 }
