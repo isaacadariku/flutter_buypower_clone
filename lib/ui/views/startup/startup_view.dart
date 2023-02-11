@@ -6,31 +6,30 @@ import 'startup_viewmodel.dart';
 class StartupView extends StackedView<StartupViewModel> {
   const StartupView({Key? key}) : super(key: key);
 
-  
-
   @override
   Widget builder(
     BuildContext context,
     StartupViewModel viewModel,
     Widget? child,
   ) {
-    var _deviceHeight = MediaQuery.of(context).size.height;
-    var _deviceWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          Container(
-            width: _deviceWidth,
-            height: _deviceHeight,
-            decoration: const BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/africa.png"), fit: BoxFit.fitHeight),
-                color: Colors.white),
-            child: Center(
-              child: Image.asset("assets/images/full_logo.png"),
-            ),
+          const Positioned.fill(
+            child: Image(
+                image: AssetImage("assets/images/africa.png"),
+                fit: BoxFit.fitHeight),
           ),
-          Positioned(top: _deviceHeight / 1.7, child: const CircularProgressIndicator.adaptive()),
+          Align(
+            alignment: Alignment.center,
+            child: Image.asset("assets/images/full_logo.png"),
+          ),
+          const Align(
+            alignment: Alignment(0.0, 0.3),
+            child: CircularProgressIndicator.adaptive(),
+          ),
         ],
       ),
     );
