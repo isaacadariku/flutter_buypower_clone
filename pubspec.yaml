@@ -60,7 +60,7 @@ flutter:
 
 
 flutter_native_splash:
-  image: "dev_assets/full_logo.png"
+  image: "dev_assets/logo.png"
   color: "#ffffff"
 
   web: false

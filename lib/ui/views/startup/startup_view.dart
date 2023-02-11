@@ -24,7 +24,7 @@ class StartupView extends StackedView<StartupViewModel> {
           ),
           Align(
             alignment: Alignment.center,
-            child: Image.asset("assets/images/full_logo.png"),
+            child: Image.asset("assets/images/logo.png"),
           ),
           const Align(
             alignment: Alignment(0.0, 0.3),
