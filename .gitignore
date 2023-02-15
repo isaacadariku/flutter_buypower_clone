@@ -10,6 +10,7 @@ build/
 pubspec.lock
 macos/Flutter/
 windows/flutter/
+linux/flutter/
 
 # Flutter/Dart/Pub related
 **/ios/Flutter/.last_build_id
