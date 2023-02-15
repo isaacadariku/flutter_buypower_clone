@@ -1,0 +1,41 @@
+name: Pull Request (Opened) Bot
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  security_hardening:
+    name: Check for security hardening
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - name: Ensure SHA pinned actions
+        uses: zgosalvez/github-actions-ensure-sha-pinned-actions@bd2868d14a756969608c618665394415a238de69 # v2.0.5
+
+  assign_author:
+    name: Assign Author to the Pull Request
+    needs: security_hardening
+    runs-on: ubuntu-latest
+    steps:
+      - name: Assign Author to the Pull Request
+        uses: technote-space/assign-author@23e6424c5942f7feaaa96956c2a64c741f0ccdf5 # v1.6.1
+
+  label_pr:
+    name: Label the PR by branch name and file changes
+    needs: security_hardening
+    runs-on: ubuntu-latest
+    steps:
+      - name: Label the PR based on the branch name
+        uses: TimonVS/pr-labeler-action@9de3270d8cac2f0be966127f6740b04fe001f9ff # v4.1.1
+        with:
+          configuration-path: .github/pr_labeling/branch_name.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Label the PR based on the file changes
+        uses: actions/labeler@b3338513be4a4bc5c64b15f457c144de28873481 # v4.0.2
+        with:
+          configuration-path: .github/pr_labeling/file_changes.yml
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
