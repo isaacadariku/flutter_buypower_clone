@@ -30,15 +30,6 @@ class StartupView extends StackedView<StartupViewModel> {
             alignment: Alignment(0.0, 0.3),
             child: CircularProgressIndicator.adaptive(),
           ),
-          Container(
-            child: const Text(
-              "Powered by Flutter",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 12,
-              ),
-            ),
-          )
         ],
       ),
     );
