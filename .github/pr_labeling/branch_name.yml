@@ -1,4 +1,4 @@
-docs: ["docs/*", "doc/*"]
-chore: ["chore/*", "refactor/*"]
-feature: ["feature/*", "feat/*"]
-fix: fix/*
+'Type: Feature': ['feature/*', 'feat/*']
+'Type: Bug': fix/*
+'Type: House Keeping: ['chore/*', 'refactor/*']
+'Type: Documentation': ['docs/*', 'doc/*']
