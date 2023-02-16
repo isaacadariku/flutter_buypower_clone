@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign Author to the Pull Request
-        uses: technote-space/assign-author@23e6424c5942f7feaaa96956c2a64c741f0ccdf5 # v1.6.1
+        uses: technote-space/assign-author03ffe20c98bc808af5c7d47f3303d18186ebfba6 # v1.5.13
 
   label_pr:
     name: Label the PR by branch name and file changes
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Label the PR based on the branch name
-        uses: TimonVS/pr-labeler-action@9de3270d8cac2f0be966127f6740b04fe001f9ff # v4.1.1
+        uses: TimonVS/pr-labeler-action@8b99f404a073744885d8021d1de4e40c6eaf38e2 # v4.1.1
         with:
           configuration-path: .github/pr_labeling/branch_name.yml
         env:
