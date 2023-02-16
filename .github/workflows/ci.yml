@@ -1,0 +1,89 @@
+name: Continuous Integration (CI) - Flutter
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - dev
+
+jobs:
+  security_hardening:
+    name: Check for security hardening
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+      - name: Ensure SHA pinned actions
+        uses: zgosalvez/github-actions-ensure-sha-pinned-actions@bd2868d14a756969608c618665394415a238de69 # v2.0.5
+
+  testing:
+    name: Run quality checks and tests
+    needs: security_hardening
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the repository
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          fetch-depth: 50
+          path: code
+
+      - name: Get Flutter version
+        id: get-flutter-version
+        uses: zgosalvez/github-actions-get-flutter-version-env@b8207b3dd89f92743380393389d41ac173fade79 # v2.0.11
+        with:
+          pubspec-file-path: code/pubspec.yaml
+
+      - name: Cache Flutter
+        id: cache-flutter
+        uses: actions/cache@81b728193625a15a55fcce4c6eb6187358533785 # v3.2.5
+        with:
+          path: flutter
+          key: ${{ env.cache-name }}-ubuntu-latest-${{ steps.get-flutter-version.outputs.version }}-${{ hashFiles('code/pubspec.lock') }}
+          restore-keys: |
+            ${{ env.cache-name }}-ubuntu-latest-${{ steps.get-flutter-version.outputs.version }}-
+            ${{ env.cache-name }}-ubuntu-latest-
+            ${{ env.cache-name }}-
+        env:
+          cache-name: cache-flutter
+
+      - name: Clone the Flutter repository
+        if: steps.cache-flutter.outputs.cache-hit != 'true'
+        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+        with:
+          repository: flutter/flutter
+          path: flutter
+          ref: ${{ steps.get-flutter-version.outputs.version }}
+
+      - name: Add Flutter tool to PATH
+        run: |
+          echo "$GITHUB_WORKSPACE/flutter/bin" >> $GITHUB_PATH
+          echo "$GITHUB_WORKSPACE/flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
+
+      - name: Populate the Flutter tool cache
+        if: steps.cache-flutter.outputs.cache-hit != 'true'
+        # Disable reporting anonymously and pre-cache artifacts
+        run: |
+          flutter config --no-analytics 
+          flutter precache
+
+      - name: Install dependencies
+        run: flutter pub get
+        working-directory: code
+
+      - name: Ensure the Dart code is formatted correctly
+        run: dart format lib/ --set-exit-if-changed .
+        working-directory: code
+
+      - name: Analyze the Dart code
+        uses: zgosalvez/github-actions-analyze-dart@29bde26167292a3e46eeb3ec081b851a8af48c7d # v2.0.10
+        with:
+          working-directory: code
+          fail-on-warnings: true
+
+      - name: Verify that there are no unexpected changes
+        run: git diff --exit-code
+        working-directory: code
+
+      - name: Run tests without coverage
+        run: flutter test --no-pub
+        working-directory: code
