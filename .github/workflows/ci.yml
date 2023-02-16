@@ -5,7 +5,9 @@ on:
     types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - dev
-      - chore/setup-ci # Temporary to test this workflow
+  push:
+    branches:
+      - chore/* # Temporary to test this workflow
 
 jobs:
   security_hardening:
