@@ -2,7 +2,7 @@ name: Pull Request (Opened) Bot
 
 on:
   pull_request:
-    types: [opened]
+    types: [opened, ready_for_review]
 
 jobs:
   security_hardening:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Assign Author to the Pull Request
-        uses: technote-space/assign-author03ffe20c98bc808af5c7d47f3303d18186ebfba6 # v1.5.13
+        uses: technote-space/assign-author@03ffe20c98bc808af5c7d47f3303d18186ebfba6 # v1.5.13
 
   label_pr:
     name: Label the PR by branch name and file changes
