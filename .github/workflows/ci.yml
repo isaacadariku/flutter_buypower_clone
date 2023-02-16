@@ -46,8 +46,8 @@ jobs:
             ${{ env.cache-name }}-ubuntu-latest-${{ steps.get-flutter-version.outputs.version }}-
             ${{ env.cache-name }}-ubuntu-latest-
             ${{ env.cache-name }}-
-          env:
-            cache-name: cache-flutter
+        env:
+          cache-name: cache-flutter
 
       - name: Clone the Flutter repository
         if: steps.cache-flutter.outputs.cache-hit != 'true'
