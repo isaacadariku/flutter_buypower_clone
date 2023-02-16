@@ -2,7 +2,7 @@ name: Pull Request (Opened) Bot
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened]
 
 jobs:
   security_hardening:

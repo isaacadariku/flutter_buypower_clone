@@ -7,12 +7,13 @@ version: 0.1.0+1
 
 environment:
   sdk: ">=2.17.0 <3.0.0"
+  flutter: 3.7.1
 
 dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  
+
   stacked: ^3.1.0-beta.0
   stacked_services: ^0.9.8
 
@@ -21,7 +22,7 @@ dev_dependencies:
   flutter_lints: ^1.0.0
   flutter_test:
     sdk: flutter
-  mockito: ^5.1.0  
+  mockito: ^5.1.0
   flutter_native_splash: ^2.2.17
   stacked_generator: ^0.8.1
 
@@ -57,7 +58,6 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
 
 flutter_native_splash:
   image: "dev_assets/logo.png"
