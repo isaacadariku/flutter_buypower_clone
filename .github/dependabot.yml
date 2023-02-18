@@ -19,5 +19,3 @@ updates:
     commit-message:
       prefix: "chore"
       include: "scope"
-      prefix-development: "chore"
-      include-development: "scope"
