@@ -1,3 +1,4 @@
+import 'package:buypower_clone/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
@@ -17,14 +18,14 @@ class StartupView extends StackedView<StartupViewModel> {
       body: Stack(
         alignment: Alignment.topCenter,
         children: [
-          const Positioned.fill(
-            child: Image(
-                image: AssetImage("assets/images/africa.png"),
-                fit: BoxFit.fitHeight),
+          Positioned.fill(
+            child: Assets.images.africa.image(
+              fit: BoxFit.fitHeight
+            ),
           ),
           Align(
             alignment: Alignment.center,
-            child: Image.asset("assets/images/logo.png"),
+            child: Assets.images.logo.image(),
           ),
           const Align(
             alignment: Alignment(0.0, 0.3),
