@@ -1,0 +1,21 @@
+version: 2
+enable-beta-ecosystems: true
+updates:
+  # Maintain dependencies for pub.dev
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "isaacadariku"
+    assignees:
+      - "isaacadariku"
+    target-branch: "dev"
+    labels:
+      - "pub.dev"
+      - "dependencies"
+      - "dependabot"
+    commit-message:
+      prefix: "chore"
+      include: "scope"

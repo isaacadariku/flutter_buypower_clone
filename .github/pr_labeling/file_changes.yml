@@ -1,0 +1,29 @@
+docs:
+  - any: ["**/*.md"]
+
+dependencies:
+  - any: ["pubspec.yaml", "pubspec.lock"]
+
+assets:
+  - any: ["assets/**/*", "dev_assets/**/*"]
+
+frontend:
+  - any: ["lib/ui/**/*"]
+
+domain:
+  - any: ["lib/**/*", "!lib/ui/**/*"]
+
+test:
+  - any: ["test/**/*", "test_driver/**/*"]
+
+linting:
+  - any: [".analysis_options.yaml"]
+
+automation:
+  - any: [".github/**/*", ".vscode/**/*"]
+
+gitignore:
+  - any: [".gitignore"]
+
+stacked:
+  - any: ["stacked.json"]

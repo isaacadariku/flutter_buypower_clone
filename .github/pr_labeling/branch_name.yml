@@ -1,0 +1,4 @@
+"Type: Feature": ["feature/*", "feat/*"]
+"Type: Bug": fix/*
+"Type: House Keeping": ["chore/*", "refactor/*"]
+"Type: Documentation": ["docs/*", "doc/*"]
