@@ -2,7 +2,6 @@ import 'package:buypower_clone/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
-
 import 'startup_viewmodel.dart';
 
 class StartupView extends StackedView<StartupViewModel> {
@@ -19,9 +18,7 @@ class StartupView extends StackedView<StartupViewModel> {
         alignment: Alignment.topCenter,
         children: [
           Positioned.fill(
-            child: Assets.images.africa.image(
-              fit: BoxFit.fitHeight
-            ),
+            child: Assets.images.africa.image(fit: BoxFit.fitHeight),
           ),
           Align(
             alignment: Alignment.center,
@@ -40,6 +37,6 @@ class StartupView extends StackedView<StartupViewModel> {
   StartupViewModel viewModelBuilder(BuildContext context) => StartupViewModel();
 
   @override
-  void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance
-      .addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
+  void onViewModelReady(StartupViewModel viewModel) =>
+      SchedulerBinding.instance.addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
 }
