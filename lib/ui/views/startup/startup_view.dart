@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../widgets/buy_power_loading_widget.dart';
 import 'startup_viewmodel.dart';
 
 class StartupView extends StackedView<StartupViewModel> {
@@ -28,7 +29,7 @@ class StartupView extends StackedView<StartupViewModel> {
           ),
           const Align(
             alignment: Alignment(0.0, 0.3),
-            child: CircularProgressIndicator.adaptive(),
+            child: BuyPowerLoadingWidget(),
           ),
         ],
       ),
