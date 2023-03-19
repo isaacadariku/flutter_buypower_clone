@@ -42,7 +42,7 @@ class InfoAlertDialog extends StatelessWidget {
                       Text(
                         request.description!,
                         style:
-                            const TextStyle(fontSize: 14, color: kcMediumGrey),
+                            const TextStyle(fontSize: 14, color: grey),
                         maxLines: 3,
                         softWrap: true,
                       ),
