@@ -76,8 +76,7 @@ jobs:
 
       - name: Analyze the Dart code
         run: dart analyze lib/ --fatal-infos --fatal-warnings .
-        with:
-          working-directory: code
+        working-directory: code
 
       - name: Verify that there are no unexpected changes
         run: git diff --exit-code
