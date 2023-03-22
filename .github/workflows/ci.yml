@@ -75,10 +75,9 @@ jobs:
         working-directory: code
 
       - name: Analyze the Dart code
-        uses: zgosalvez/github-actions-analyze-dart@29bde26167292a3e46eeb3ec081b851a8af48c7d # v2.0.10
+        run: dart analyze lib/ --fatal-infos --fatal-warnings .
         with:
           working-directory: code
-          fail-on-warnings: true
 
       - name: Verify that there are no unexpected changes
         run: git diff --exit-code
