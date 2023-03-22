@@ -41,8 +41,7 @@ class InfoAlertDialog extends StatelessWidget {
                       verticalSpaceTiny,
                       Text(
                         request.description!,
-                        style:
-                            const TextStyle(fontSize: 14, color: kcMediumGrey),
+                        style: const TextStyle(fontSize: 14, color: grey),
                         maxLines: 3,
                         softWrap: true,
                       ),

@@ -22,13 +22,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: Theme.of(context).copyWith(
-        primaryColor: kcBackgroundColor,
-        focusColor: kcPrimaryColor,
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        focusColor: primaryColor,
         textTheme: Theme.of(context).textTheme.apply(
               bodyColor: Colors.black,
             ),
       ),
+      darkTheme: ThemeData.dark(),
       initialRoute: Routes.startupView,
       onGenerateRoute: StackedRouter().onGenerateRoute,
       navigatorKey: StackedService.navigatorKey,

@@ -70,6 +70,10 @@ jobs:
         run: flutter pub get
         working-directory: code
 
+      - name: Run code generation
+        run: flutter pub run build_runner build --delete-conflicting-outputs
+        working-directory: code
+
       - name: Ensure the Dart code is formatted correctly
         run: dart format lib/ --set-exit-if-changed .
         working-directory: code
