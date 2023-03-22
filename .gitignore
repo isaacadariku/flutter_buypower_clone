@@ -9,6 +9,7 @@ build/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
 
+
 # Flutter/Dart/Pub related
 **/ios/Flutter/.last_build_id
 .flutter-plugins
